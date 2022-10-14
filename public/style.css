@@ -1,6 +1,95 @@
+:root {
+	--color-reset: #ffffff;
+	--color-barrier: #964b00;
+	--color-closed: #f05454;
+	--color-open: #3ccf4e;
+	--color-path: #3cc4fe;
+	--color-start: #ffa500;
+	--color-end: #ffff00;
+
+	--color-bg: #100f0f;
+	--color-text: #f1f1f1;
+	--color-subtext: #f3f9fb;
+
+	--color-btn: #4e4e4e;
+	--color-btn-border: #808080;
+}
+
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	color: var(--color-text);
+}
+
+body {
+	background-color: var(--color-bg);
+}
+
+header {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+
+header h1 {
+	margin-bottom: 10px;
+}
+
+/* input form */
+
+.input-form {
+	text-align: center;
+	margin: 10px 0 10px 0;
+	padding: 10px;
+}
+
+.form-item {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	/* vertically align input field in div */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-item input {
+	width: 60px;
+	margin-left: 15px;
+	margin-right: 10px;
+	color: #000;
+}
+
+.form-item input[type='range'] {
+	width: 120px;
+}
+
+.form-item span {
+	color: var(--color-subtext);
+}
+
+.btn {
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: var(--color-btn);
+	border: 1px solid var(--color-btn-border);
+}
+
+.btn:hover {
+	cursor: pointer;
+	border: 1px solid var(--color-subtext);
+}
+
+.btn:disabled {
+	border: 1px solid var(--color-btn-border);
+}
+
+/* input form */
+
+.grid {
+	text-align: center;
 }
 
 .row {
@@ -9,9 +98,20 @@
 
 .cell {
 	display: inline-block;
-	width: 30px;
-	height: 30px;
+	width: 60px;
+	height: 60px;
 	margin: 2px;
-	border: 1px solid black;
-	text-align: center;
+	background-color: var(--color-reset);
+	border: 1px solid var(--color-reset);
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.cell p {
+	color: black;
+}
+
+.cell:hover,
+.cell.barrier {
+	border: 1px solid var(--color-barrier);
 }
