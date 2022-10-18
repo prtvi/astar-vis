@@ -67,10 +67,6 @@ export default function Cell(props) {
 	};
 
 	return (
-		<div className="cell" style={getCellStyle()} onClick={cellClickEL}>
-			<p>
-				{y}, {x} ({state})
-			</p>
-		</div>
+		<div className="cell" style={getCellStyle()} onClick={cellClickEL}></div>
 	);
 }

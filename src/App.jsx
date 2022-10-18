@@ -2,16 +2,16 @@ import React from 'react';
 
 import Grid from './components/Grid';
 import InputForm from './components/InputForm';
+import Legend from './components/Legend';
 
-import { PriorityQueue } from './utils/pq';
+import { PriorityQueue } from './utils/pQueue';
 import {
 	getGrid,
 	getGridStates,
 	cellToCoords,
 	coordsToCell,
+	delay,
 } from './utils/cell';
-
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 export default function App() {
 	const [speed, setSpeed] = React.useState(50);
@@ -164,13 +164,22 @@ export default function App() {
 			<header>
 				<h1>A* shortest path algorithm visualization</h1>
 			</header>
-			<InputForm
-				updateGridOnInput={updateGridOnInput}
-				setGridSize={setGridSize}
-				setSpeed={setSpeed}
-				startVis={startVis}
-			/>
-			<Grid grid={getGridStates(grid)} updateGridOnClick={updateGridOnClick} />
+
+			<div className="form-and-grid">
+				<InputForm
+					updateGridOnInput={updateGridOnInput}
+					setGridSize={setGridSize}
+					setSpeed={setSpeed}
+					startVis={startVis}
+				/>
+				<Grid
+					grid={getGridStates(grid)}
+					updateGridOnClick={updateGridOnClick}
+					gridSize={gridSize}
+				/>
+			</div>
+
+			<Legend />
 		</div>
 	);
 }

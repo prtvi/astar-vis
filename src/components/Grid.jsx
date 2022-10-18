@@ -3,7 +3,7 @@ import React from 'react';
 import Cell from './Cell';
 
 export default function Grid(props) {
-	const { grid, updateGridOnClick } = props;
+	const { grid, gridSize, updateGridOnClick } = props;
 
 	return (
 		<div className="grid">
@@ -15,6 +15,7 @@ export default function Grid(props) {
 							x={nCell}
 							y={nRow}
 							state={cell}
+							gridSize={gridSize}
 							updateGridOnClick={updateGridOnClick}
 						/>
 					))}

@@ -28,20 +28,24 @@ body {
 
 header {
 	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 10px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 header h1 {
 	margin-bottom: 10px;
 }
 
+.form-and-grid {
+	width: 70%;
+	float: left;
+}
+
 /* input form */
 
 .input-form {
 	text-align: center;
-	margin: 10px 0 10px 0;
-	padding: 10px;
+	margin: 10px 0 25px 0;
 }
 
 .form-item {
@@ -52,6 +56,12 @@ header h1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.form-item p {
+	width: 80%;
+	font-size: 14px;
+	margin-bottom: 10px;
 }
 
 .form-item input {
@@ -66,6 +76,7 @@ header h1 {
 }
 
 .form-item span {
+	font-size: 14px;
 	color: var(--color-subtext);
 }
 
@@ -88,22 +99,25 @@ header h1 {
 
 /* input form */
 
+/* grid */
+
 .grid {
 	text-align: center;
 }
 
 .row {
 	display: block;
+	height: 18px;
 }
 
 .cell {
 	display: inline-block;
-	width: 60px;
-	height: 60px;
-	margin: 2px;
+	width: 15px;
+	height: 15px;
+	margin: 1px;
 	background-color: var(--color-reset);
 	border: 1px solid var(--color-reset);
-	border-radius: 3px;
+	border-radius: 1px;
 	cursor: pointer;
 }
 
@@ -115,3 +129,36 @@ header h1 {
 .cell.barrier {
 	border: 1px solid var(--color-barrier);
 }
+
+/* grid */
+
+/* legend */
+
+.legend {
+	width: 25%;
+	margin: 10px 10px 10px 0;
+	float: right;
+}
+
+.legend-cell {
+	margin: 3px;
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.legend-cell div {
+	width: 18px;
+	height: 18px;
+	border-radius: 1px;
+	float: left;
+}
+
+.legend-cell span {
+	font-size: 12px;
+	margin-left: 5px;
+	width: 90%;
+}
+
+/* legend */

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const [minSize, maxSize, stepSize] = [7, 25, 1];
+const [minSize, maxSize, stepSize] = [10, 25, 1];
 const [minSpeed, maxSpeed, stepSpeed] = [50, 500, 50];
 
 export default function InputForm(props) {
@@ -33,6 +33,12 @@ export default function InputForm(props) {
 
 	return (
 		<div className="input-form">
+			<div className="form-item">
+				<p>
+					Click on the boxes to start adding the start, end and barrier nodes
+				</p>
+			</div>
+
 			<div className="form-item">
 				<label>Enter the maze size:</label>
 				<input

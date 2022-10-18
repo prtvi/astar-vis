@@ -89,3 +89,5 @@ export const coordsToCell = function (grid, coordsString) {
 	const [x, y] = coordsString.split(',');
 	return grid[+y][+x];
 };
+
+export const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
