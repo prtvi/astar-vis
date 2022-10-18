@@ -1,9 +1,6 @@
 :root {
 	--color-reset: #ffffff;
 	--color-barrier: #964b00;
-	--color-closed: #f05454;
-	--color-open: #3ccf4e;
-	--color-path: #3cc4fe;
 	--color-start: #ffa500;
 	--color-end: #ffff00;
 
@@ -39,6 +36,7 @@ header h1 {
 .form-and-grid {
 	width: 70%;
 	float: left;
+	max-height: 750px;
 }
 
 /* input form */
@@ -51,8 +49,6 @@ header h1 {
 .form-item {
 	margin-top: 10px;
 	margin-bottom: 10px;
-
-	/* vertically align input field in div */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -103,10 +99,12 @@ header h1 {
 
 .grid {
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 .row {
 	display: block;
+	/* row height will be cell height + 3 (1px margin + 2 px border) */
 	height: 18px;
 }
 
@@ -121,13 +119,16 @@ header h1 {
 	cursor: pointer;
 }
 
-.cell p {
-	color: black;
+.cell.barrier:hover {
+	border: 1px solid var(--color-barrier);
 }
 
-.cell:hover,
-.cell.barrier {
-	border: 1px solid var(--color-barrier);
+.cell.start:hover {
+	border: 1px solid var(--color-start);
+}
+
+.cell.end:hover {
+	border: 1px solid var(--color-end);
 }
 
 /* grid */
@@ -157,7 +158,7 @@ header h1 {
 
 .legend-cell span {
 	font-size: 12px;
-	margin-left: 5px;
+	margin-left: 10px;
 	width: 90%;
 }
 

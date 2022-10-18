@@ -4,9 +4,9 @@ const [minSize, maxSize, stepSize] = [10, 25, 1];
 const [minSpeed, maxSpeed, stepSpeed] = [50, 500, 50];
 
 export default function InputForm(props) {
-	const { updateGridOnInput, setGridSize, startVis, setSpeed } = props;
+	const { updateGridOnInput, setGridSize, startVis, setSpeed, ifRunning } =
+		props;
 
-	const [ifRunning, changeIfRunning] = React.useState(false);
 	const [inputGridSize, setInputGridSize] = React.useState(minSize);
 	const [inputSpeed, setInputSpeed] = React.useState(minSpeed * 4);
 
@@ -24,10 +24,7 @@ export default function InputForm(props) {
 		setInputSpeed(+e.target.value);
 	};
 
-	const btnStart = async function () {
-		changeIfRunning(true);
-		await startVis();
-	};
+	const btnStart = async () => await startVis();
 
 	const btnReload = () => window.location.reload();
 

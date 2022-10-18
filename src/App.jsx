@@ -15,12 +15,13 @@ import {
 
 export default function App() {
 	const [speed, setSpeed] = React.useState(50);
+	const [ifRunning, changeIfRunning] = React.useState(false);
 
 	const [gridSize, setGridSize] = React.useState(10);
 	const [grid, updateGrid] = React.useState(getGrid(gridSize));
 
-	const [startCell, setStart] = React.useState(null);
-	const [endCell, setEnd] = React.useState(null);
+	const [start, setStart] = React.useState(null);
+	const [end, setEnd] = React.useState(null);
 
 	const [cellsClicked, updateCellsClicked] = React.useState(0);
 
@@ -34,34 +35,38 @@ export default function App() {
 	const updateGridOnClick = function (x, y) {
 		const cell = grid[y][x];
 
-		if (cellsClicked === 0 && !startCell && !endCell) {
+		if (cellsClicked === 0 && !start && !end) {
 			// add start cell
-			updateCellsClicked(cellsClicked + 1);
 			updateGrid(grid => {
 				if (cell.isReset()) {
 					cell.makeStart();
 					setStart(cell);
+					updateCellsClicked(cellsClicked + 1);
 				}
 
 				return grid;
 			});
-		} else if (cellsClicked === 1 && !endCell && startCell) {
+		} else if (cellsClicked === 1 && !end && start) {
 			// add end cell
-			updateCellsClicked(cellsClicked + 1);
 			updateGrid(grid => {
 				if (cell.isReset()) {
 					cell.makeEnd();
 					setEnd(cell);
+					updateCellsClicked(cellsClicked + 1);
 				}
 
 				return grid;
 			});
-		} else if (cellsClicked >= 2 && startCell && endCell) {
+		} else if (cellsClicked >= 2 && start && end) {
 			// add/remove barrier
-			updateCellsClicked(cellsClicked + 1);
 			updateGrid(grid => {
-				if (cell.isReset()) cell.makeBarrier();
-				else if (cell.isBarrier()) cell.reset();
+				if (cell.isReset()) {
+					cell.makeBarrier();
+					updateCellsClicked(cellsClicked + 1);
+				} else if (cell.isBarrier()) {
+					cell.reset();
+					updateCellsClicked(cellsClicked - 1);
+				}
 
 				return grid;
 			});
@@ -135,7 +140,7 @@ export default function App() {
 						openSet.enqueue([count, neighbourCoords], fScore[neighbourCoords]);
 						openSetHash.add(neighbourCoords);
 
-						neighbour.makeOpen();
+						neighbour.makeClosed();
 					}
 				}
 			});
@@ -144,18 +149,22 @@ export default function App() {
 
 			updateGrid(grid => grid.slice());
 
-			if (currentCell !== start) currentCell.makeClosed();
+			if (currentCell !== start) {
+				currentCell.makeOpen();
+			}
 		}
 
 		return false;
 	};
 
 	const startVis = async function () {
-		if (startCell && endCell) {
+		if (start && end) {
+			changeIfRunning(true);
+
 			// update neighbours
 			grid.forEach(row => row.forEach(cell => cell.updateNeighbours(grid)));
 
-			await algorithm(grid, startCell, endCell);
+			await algorithm(grid, start, end);
 		}
 	};
 
@@ -171,11 +180,13 @@ export default function App() {
 					setGridSize={setGridSize}
 					setSpeed={setSpeed}
 					startVis={startVis}
+					ifRunning={ifRunning}
 				/>
 				<Grid
 					grid={getGridStates(grid)}
 					updateGridOnClick={updateGridOnClick}
 					gridSize={gridSize}
+					cellsClicked={cellsClicked}
 				/>
 			</div>
 
