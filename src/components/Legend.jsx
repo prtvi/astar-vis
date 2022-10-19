@@ -43,13 +43,16 @@ const legendData = [
 
 export default function Legend() {
 	return (
-		<div className="legend">
-			{legendData.map((ld, i) => (
-				<div className="legend-cell" key={i}>
-					<div style={ld.style}></div>
-					<span>{ld.data}</span>
-				</div>
-			))}
-		</div>
+		<details open>
+			<summary>Legend</summary>
+			<div className="legend">
+				{legendData.map((ld, i) => (
+					<div className="legend-cell" key={i}>
+						<div style={ld.style}></div>
+						<span>{ld.data}</span>
+					</div>
+				))}
+			</div>
+		</details>
 	);
 }

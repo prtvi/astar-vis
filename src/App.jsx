@@ -80,10 +80,14 @@ export default function App() {
 		return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 	};
 
-	const reconstructPath = function (cameFrom, currentCoords, grid) {
+	const reconstructPath = async function (cameFrom, currentCoords, grid) {
 		while (currentCoords in cameFrom) {
+			await delay(speed);
+
 			currentCoords = cameFrom[currentCoords];
 			coordsToCell(grid, currentCoords).makePath();
+
+			updateGrid(grid => grid.slice());
 		}
 	};
 
@@ -117,7 +121,7 @@ export default function App() {
 			openSetHash.delete(currentCellCoords);
 
 			if (currentCellCoords === endCoords) {
-				reconstructPath(cameFrom, endCoords, grid);
+				await reconstructPath(cameFrom, endCoords, grid);
 
 				end.makeEnd();
 				start.makeStart();
@@ -174,21 +178,20 @@ export default function App() {
 				<h1>A* shortest path algorithm visualization</h1>
 			</header>
 
-			<div className="form-and-grid">
-				<InputForm
-					updateGridOnInput={updateGridOnInput}
-					setGridSize={setGridSize}
-					setSpeed={setSpeed}
-					startVis={startVis}
-					ifRunning={ifRunning}
-				/>
-				<Grid
-					grid={getGridStates(grid)}
-					updateGridOnClick={updateGridOnClick}
-					gridSize={gridSize}
-					cellsClicked={cellsClicked}
-				/>
-			</div>
+			<InputForm
+				updateGridOnInput={updateGridOnInput}
+				setGridSize={setGridSize}
+				setSpeed={setSpeed}
+				startVis={startVis}
+				ifRunning={ifRunning}
+			/>
+
+			<Grid
+				grid={getGridStates(grid)}
+				updateGridOnClick={updateGridOnClick}
+				gridSize={gridSize}
+				cellsClicked={cellsClicked}
+			/>
 
 			<Legend />
 		</div>

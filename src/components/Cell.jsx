@@ -6,7 +6,7 @@ export const COLOR_CLOSED = '#f05454'; //   red       2
 export const COLOR_OPEN = '#3ccf4e'; //     green     3
 export const COLOR_PATH = '#3cc4fe'; //     blue      4
 export const COLOR_START = '#ffa500'; //    orange    5
-export const COLOR_END = '#ffff00'; //      yellow    9
+export const COLOR_END = '#533483'; //      purple    9
 
 export default function Cell(props) {
 	const { x, y, state, cellSize, cellsClicked, updateGridOnClick } = props;

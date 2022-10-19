@@ -2,7 +2,7 @@
 	--color-reset: #ffffff;
 	--color-barrier: #964b00;
 	--color-start: #ffa500;
-	--color-end: #ffff00;
+	--color-end: #533483;
 
 	--color-bg: #100f0f;
 	--color-text: #f1f1f1;
@@ -26,17 +26,11 @@ body {
 header {
 	text-align: center;
 	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 }
 
 header h1 {
 	margin-bottom: 10px;
-}
-
-.form-and-grid {
-	width: 70%;
-	float: left;
-	max-height: 750px;
 }
 
 /* input form */
@@ -44,6 +38,8 @@ header h1 {
 .input-form {
 	text-align: center;
 	margin: 10px 0 25px 0;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .form-item {
@@ -100,6 +96,8 @@ header h1 {
 .grid {
 	text-align: center;
 	margin-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .row {
@@ -135,10 +133,15 @@ header h1 {
 
 /* legend */
 
+details {
+	padding-left: 50px;
+	padding-right: 50px;
+	cursor: pointer;
+}
+
 .legend {
-	width: 25%;
-	margin: 10px 10px 10px 0;
-	float: right;
+	margin-top: 20px;
+	margin-left: 20px;
 }
 
 .legend-cell {
