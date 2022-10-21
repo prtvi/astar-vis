@@ -166,3 +166,14 @@ details {
 }
 
 /* legend */
+
+.info {
+	margin-top: 30px;
+	margin-bottom: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.info p {
+	font-size: 13px;
+}

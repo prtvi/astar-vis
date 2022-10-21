@@ -28,12 +28,12 @@ const legendData = [
 		data: 'Barrier node',
 	},
 	{
-		style: { backgroundColor: COLOR_CLOSED },
-		data: 'Closed node (no more traversing will happen on this node)',
-	},
-	{
 		style: { backgroundColor: COLOR_OPEN },
 		data: 'Open node (traversing yet possible over this node)',
+	},
+	{
+		style: { backgroundColor: COLOR_CLOSED },
+		data: 'Closed node (no more traversing will happen on this node)',
 	},
 	{
 		style: { backgroundColor: COLOR_PATH },
@@ -52,6 +52,19 @@ export default function Legend() {
 						<span>{ld.data}</span>
 					</div>
 				))}
+			</div>
+
+			<div className="info">
+				<p>
+					<a
+						href="https://github.com/prtvi/astar-vis"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Click here
+					</a>{' '}
+					to checkout the github repository.
+				</p>
 			</div>
 		</details>
 	);

@@ -175,7 +175,7 @@ export default function App() {
 	return (
 		<div className="main">
 			<header>
-				<h1>A* shortest path algorithm visualization</h1>
+				<h1>A* shortest path search algorithm visualization</h1>
 			</header>
 
 			<InputForm
