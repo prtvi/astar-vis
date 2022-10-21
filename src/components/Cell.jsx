@@ -3,8 +3,8 @@ import React from 'react';
 export const COLOR_RESET = '#ffffff'; //    white     0
 export const COLOR_BARRIER = '#964b00'; //  brown     1
 export const COLOR_CLOSED = '#f05454'; //   red       2
-export const COLOR_OPEN = '#3ccf4e'; //     green     3
-export const COLOR_PATH = '#3cc4fe'; //     blue      4
+export const COLOR_OPEN = '#3cc4fe'; //     blue      3
+export const COLOR_PATH = '#3ccf4e'; //     green     4
 export const COLOR_START = '#ffa500'; //    orange    5
 export const COLOR_END = '#533483'; //      purple    9
 

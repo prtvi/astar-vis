@@ -162,14 +162,14 @@ export default function App() {
 	};
 
 	const startVis = async function () {
-		if (start && end) {
-			changeIfRunning(true);
+		if (!start && !end) return;
 
-			// update neighbours
-			grid.forEach(row => row.forEach(cell => cell.updateNeighbours(grid)));
+		changeIfRunning(true);
 
-			await algorithm(grid, start, end);
-		}
+		// update neighbours
+		grid.forEach(row => row.forEach(cell => cell.updateNeighbours(grid)));
+
+		await algorithm(grid, start, end);
 	};
 
 	return (
