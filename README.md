@@ -1,6 +1,6 @@
 # React - A\* Shortest Path Search Algorithm - Visualization
 
-[Click here to view the application](https://react-astar-visualization.herokuapp.com/)
+Check out the link in the repository details to view the application
 
 ## About the algorithm
 
