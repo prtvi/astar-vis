@@ -1,5 +1,7 @@
 # React - A\* Shortest Path Search Algorithm - Visualization
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3a9c61d8-169c-440c-bc7a-cde975870424/deploy-status)](https://app.netlify.com/sites/astar-visualisation/deploys)
+
 Check out the link in the repository details to view the application
 
 ## About the algorithm
