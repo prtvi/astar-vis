@@ -49,3 +49,7 @@ Now click on the start button to start the visualization.
 🟦 Open node (traversing yet possible over this node) <br>
 🟥 Closed node (no more traversing will happen on this node) <br>
 🟩 Path (shortest path found) <br>
+
+## Other links
+
+Click [here](https://prtvi.github.io/allprojects.html) to check out my other projects
